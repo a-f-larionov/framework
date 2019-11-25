@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use ProviderInterface;
+use App\Providers\Interfaces\ProviderInterface;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Routing\Loader\PhpFileLoader;
 use Symfony\Component\Routing\Router;

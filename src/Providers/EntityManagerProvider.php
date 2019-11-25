@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Providers\Interfaces\ProviderInterface;
 use Doctrine\DBAL\Logging\EchoSQLLogger;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMException;
@@ -11,9 +12,8 @@ use Doctrine\ORM\Tools\Setup;
  * Class EntityManagerProvider
  * @package App\Providers
  */
-class EntityManagerProvider implements \ProviderInterface
+class EntityManagerProvider implements ProviderInterface
 {
-
     /**
      * @return EntityManager|mixed
      * @throws ORMException

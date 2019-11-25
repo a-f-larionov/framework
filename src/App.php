@@ -52,22 +52,24 @@ class App
      * Обработать http-запрос клинета
      * @param Request $request
      * @return Response
-     * @throws Exception
      */
     public function handle(Request $request): Response
     {
         try {
+            $this->container->set(Request::class, $request);
 
             $params = $this->router->match($request->getPathInfo());
 
             if (!is_callable($params['_controller'])) {
                 throw new Exception("Controller must be callable.");
             }
-            $response = $this->container->call($params['_controller']);
+            $response = $this->container->call($params['_controller'], $params);
         } catch (ResourceNotFoundException $e) {
             $response = new Response("", Response::HTTP_NOT_FOUND);
         } catch (UserRequestErrorException $e) {
             $response = new Response($e->getMessage(), Response::HTTP_BAD_REQUEST);
+        } catch (Exception $e) {
+            $response = new Response("Сайт на реконструкции.", Response::HTTP_OK);
         }
 
         return $response;

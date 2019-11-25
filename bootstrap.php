@@ -1,4 +1,7 @@
 <?php
+/**
+ * Bootstrap Framework-а
+ */
 
 use DI\ContainerBuilder;
 use Dotenv\Dotenv;
