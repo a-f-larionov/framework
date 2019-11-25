@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Entry Point Фреймоврк.
+ * Entry Point Фреймоврка.
  */
 use App\App;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Autoloader from composer.
+ * Автозлоадер from composer.
  */
 require_once __DIR__ . '/../vendor/autoload.php';
 
